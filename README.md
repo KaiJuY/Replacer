@@ -29,4 +29,8 @@ This application helps manage and replace files in a folder containing both old 
 
     When a file is selected in the File Browser Section, its differences between the old and new versions are displayed here. Removed content is highlighted with a red background (-), and added content is highlighted with a green background (+), allowing users to clearly understand the differences between the two files.
 
+## 🚧Under Construction
 
+- [ ] New Feature for update - Partial update file content.
+- [ ] New Feature for report - Generate a pdf file for update report.
+- [ ] Improve default file checkbox - Auto select different files.
