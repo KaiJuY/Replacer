@@ -1,6 +1,8 @@
 # Replacer
 此應用程式可用於管理和取代資料夾中包含的新舊版本檔案，提供清晰的檔案檢視，並突顯版本間的差異，使更新與比較變得簡單且高效。
 
+git link : https://github.com/KaiJuY/Replacer
+
 [English](README.md)
 ## GUI 操作指南
 ![alt text](Aserts/image.png)
