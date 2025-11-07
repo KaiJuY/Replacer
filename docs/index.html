@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Replacer - 應用程式介紹</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .main-title {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 2.5em;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1600px;
+            margin: 20px auto;
+        }
+        .column {
+            flex: 1;
+            min-width: 400px; /* 確保在較大螢幕上不會太窄 */
+            max-width: 800px; /* 限制最大寬度 */
+            background: #ffffff;
+            border: 1px solid #dcdcdc;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: box-shadow 0.3s ease;
+        }
+        .column:hover {
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #3498db;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 8px;
+            margin-top: 0;
+            font-size: 1.8em;
+        }
+        h3 {
+            color: #2980b9;
+            font-size: 1.4em;
+            margin-top: 25px;
+        }
+        p, li {
+            font-size: 1em;
+            color: #555;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        pre {
+            background-color: #2d2d2d;
+            color: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 0.95em;
+        }
+        code {
+            font-family: "Courier New", Courier, monospace;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        strong {
+            color: #2c3e50;
+        }
+        /* 響應式設計：當螢幕寬度小於 900px 時，欄位垂直堆疊 */
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+            }
+            .column {
+                min-width: 90%; /* 在小螢幕上佔滿寬度 */
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="main-title">Replacer - 應用程式介紹</h1>
+
+    <div class="container">
+        <div class="column" lang="en">
+            <h2>Replacer (English)</h2>
+            <p>This application helps manage and replace files in a folder containing both old and new versions. It provides a clear view of the files and highlights the differences between versions, making updates and comparisons simple and efficient.</p>
+            <p><strong>Git link:</strong> <a href="https://github.com/KaiJuY/Replacer">https://github.com/KaiJuY/Replacer</a></p>
+
+            <h3>Features</h3>
+            <ul>
+                <li>📁 <strong>Dual Folder Comparison</strong> - Compare old and new folder structures side-by-side</li>
+                <li>🔍 <strong>File Diff Viewer</strong> - Visual comparison with color-coded additions (green) and deletions (red)</li>
+                <li>✅ <strong>Selective Updates</strong> - Choose which files to update using checkboxes</li>
+                <li>🔄 <strong>Two Update Modes:</strong>
+                    <ul>
+                        <li><strong>Full Update</strong> - Complete file replacement</li>
+                        <li><strong>New Lines Only</strong> - Add only new lines without modifying existing content</li>
+                    </ul>
+                </li>
+                <li>💾 <strong>Automatic Backup</strong> - Creates timestamped backup before any update</li>
+                <li>📄 <strong>PDF Report Generation</strong> - Automatically generates update reports with diffs</li>
+                <li>👤 <strong>Operator Tracking</strong> - OP ID field for accountability and report tracking</li>
+                <li>⚙️ <strong>Configuration Support</strong> - Pre-configure file selections via <code>config.ini</code></li>
+            </ul>
+
+            <h3>Requirements</h3>
+            <ul>
+                <li>Python 3.8 or higher</li>
+                <li>Dependencies (install via requirements.txt):
+                    <ul>
+                        <li>tkinter (usually included with Python)</li>
+                        <li>reportlab</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Installation</h3>
+            <ol>
+                <li>Clone the repository:
+<pre><code>git clone https://github.com/KaiJuY/Replacer.git
+cd Replacer</code></pre>
+                </li>
+                <li>Install dependencies:
+<pre><code>pip install -r requirements.txt</code></pre>
+                </li>
+            </ol>
+
+            <h3>How to Run</h3>
+<pre><code>python main.py</code></pre>
+
+            <h3>GUI Operation Guide</h3>
+            <img src="image.png" alt="GUI Screenshot">
+
+            <h4>Top Section Buttons</h4>
+            <ul>
+                <li><strong>Select Old Folder:</strong> Select the folder containing the files you want to replace (target folder).</li>
+                <li><strong>Select New Folder:</strong> Select the folder containing the updated files (source folder).</li>
+                <li><strong>OP Field:</strong> Enter your Operator ID. This field is required before you can perform any updates.</li>
+                <li><strong>Select All Files:</strong> Quickly check all files in the file tree for updating.</li>
+                <li><strong>Select By Config:</strong> Load file selections from <code>config.ini</code>.</li>
+            </ul>
+
+            <h4>File Browser Section (Left Panel)</h4>
+            <p>Displays a hierarchical tree view of all files. Click on any file to view its differences.</p>
+
+            <h4>File Comparison Section (Right Panel)</h4>
+            <p>Displays differences between old and new versions:</p>
+            <ul>
+                <li>Lines with <strong>red background (-)</strong> indicate content removed.</li>
+                <li>Lines with <strong>green background (+)</strong> indicate content added.</li>
+            </ul>
+
+            <h4>Update Buttons (Bottom)</h4>
+            <ul>
+                <li><strong>Update:</strong> Performs a full file replacement.</li>
+                <li><strong>Update New Lines Only:</strong> Performs a partial update, only adding new lines.</li>
+            </ul>
+
+            <h3>Configuration File (config.ini)</h3>
+            <p>Create a <code>config.ini</code> file in the same directory as <code>main.py</code>:</p>
+<pre><code>[Files]
+file1.txt = True
+file2.py = False
+folder/file3.js = True</code></pre>
+
+            <h3>Backup & Reports</h3>
+            <ul>
+                <li><strong>Backups:</strong> Automatically created in the parent directory of the old folder with format: <code>{folder_name}_backup_{YYYYMMDD_HHMMSS}</code></li>
+                <li><strong>PDF Reports:</strong> Saved in the <code>pdf/</code> folder with format: <code>{YYYYMMDD_HHMMSS}_{OP_ID}.pdf</code></li>
+            </ul>
+            <p><strong>Report Sample:</strong></p>
+            <img src="report.png" alt="Report Sample">
+
+            <h3>Troubleshooting</h3>
+            <ul>
+                <li><strong>Buttons are disabled:</strong> Make sure to enter an OP ID.</li>
+                <li><strong>Permission errors:</strong> The application automatically handles read-only files.</li>
+                <li><strong>Unicode in diffs:</strong> Files with Chinese characters will show "Diff omitted" in PDF reports.</li>
+            </ul>
+
+            <h3>Completed Features</h3>
+            <ul>
+                <li>✅ Partial update functionality (New Lines Only)</li>
+                <li>✅ PDF report generation with update details</li>
+                <li>✅ Default file selection based on differences</li>
+                <li>✅ Configuration-based file selection</li>
+                <li>✅ Automatic backup system</li>
+                <li>✅ Operator ID tracking</li>
+            </ul>
+        </div>
+
+        <div class="column" lang="zh-Hant">
+            <h2>Replacer (繁體中文)</h2>
+            <p>此應用程式可用於管理和取代資料夾中包含的新舊版本檔案，提供清晰的檔案檢視，並突顯版本間的差異，使更新與比較變得簡單且高效。</p>
+            <p><strong>Git link:</strong> <a href="https://github.com/KaiJuY/Replacer">https://github.com/KaiJuY/Replacer</a></p>
+
+            <h3>功能特色</h3>
+            <ul>
+                <li>📁 <strong>雙資料夾比對</strong> - 並排比較新舊資料夾結構</li>
+                <li>🔍 <strong>檔案差異檢視器</strong> - 以顏色標示新增（綠色）和刪除（紅色）的內容</li>
+                <li>✅ <strong>選擇性更新</strong> - 使用勾選框選擇要更新的檔案</li>
+                <li>🔄 <strong>兩種更新模式：</strong>
+                    <ul>
+                        <li><strong>完整更新</strong> - 完全取代檔案</li>
+                        <li><strong>僅新增行</strong> - 只新增新的內容行，不修改現有內容</li>
+                    </ul>
+                </li>
+                <li>💾 <strong>自動備份</strong> - 更新前自動建立帶時間戳記的備份</li>
+                <li>📄 <strong>PDF 報告產生</strong> - 自動產生包含差異的更新報告</li>
+                <li>👤 <strong>操作者追蹤</strong> - OP ID 欄位用於責任歸屬和報告追蹤</li>
+                <li>⚙️ <strong>設定檔支援</strong> - 透過 <code>config.ini</code> 預先設定檔案選擇</li>
+            </ul>
+
+            <h3>系統需求</h3>
+            <ul>
+                <li>Python 3.8 或更高版本</li>
+                <li>相依套件（透過 requirements.txt 安裝）：
+                    <ul>
+                        <li>tkinter（通常隨 Python 安裝）</li>
+                        <li>reportlab</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>安裝方式</h3>
+            <ol>
+                <li>複製儲存庫：
+<pre><code>git clone https://github.com/KaiJuY/Replacer.git
+cd Replacer</code></pre>
+                </li>
+                <li>安裝相依套件：
+<pre><code>pip install -r requirements.txt</code></pre>
+                </li>
+            </ol>
+
+            <h3>執行方式</h3>
+<pre><code>python main.py</code></pre>
+
+            <h3>GUI 操作指南</h3>
+            <img src="image.png" alt="GUI 截圖">
+
+            <h4>頂部按鈕區</h4>
+            <ul>
+                <li><strong>選擇舊資料夾：</strong> 選擇包含您想要取代的檔案的資料夾（目標資料夾）。</li>
+                <li><strong>選擇新資料夾：</strong> 選擇包含更新檔案的資料夾（來源資料夾）。</li>
+                <li><strong>OP 欄位：</strong> 輸入您的操作者 ID。此欄位為必填，必須填寫後才能執行更新。</li>
+                <li><strong>選擇所有檔案：</strong> 快速勾選檔案樹中的所有檔案以進行更新。</li>
+                <li><strong>依設定選擇：</strong> 從 <code>config.ini</code> 載入檔案選擇設定。</li>
+            </ul>
+
+            <h4>檔案瀏覽區（左側面板）</h4>
+            <p>顯示所選資料夾中所有檔案的階層樹狀檢視。點擊任何檔案可在比較區檢視其差異。</p>
+
+            <h4>檔案比較區（右側面板）</h4>
+            <p>顯示新舊版本之間的差異：</p>
+            <ul>
+                <li><strong>紅色底色 (-)</strong> 的行表示在新版本中被移除的內容。</li>
+                <li><strong>綠色底色 (+)</strong> 的行表示在新版本中新增的內容。</li>
+            </ul>
+
+            <h4>更新按鈕（底部）</h4>
+            <ul>
+                <li><strong>更新：</strong> 執行完整檔案取代。</li>
+                <li><strong>僅更新新增行：</strong> 執行部分更新，只新增全新的內容行。</li>
+            </ul>
+
+            <h3>設定檔（config.ini）</h3>
+            <p>在 <code>main.py</code> 的相同目錄中建立 <code>config.ini</code> 檔案：</p>
+<pre><code>[Files]
+file1.txt = True
+file2.py = False
+folder/file3.js = True</code></pre>
+
+            <h3>備份與報告</h3>
+            <ul>
+                <li><strong>備份：</strong> 自動在舊資料夾的上層目錄建立，命名格式為：<code>{資料夾名稱}_backup_{YYYYMMDD_HHMMSS}</code></li>
+                <li><strong>PDF 報告：</strong> 儲存在 <code>pdf/</code> 資料夾中，命名格式為：<code>{YYYYMMDD_HHMMSS}_{OP_ID}.pdf</code></li>
+            </ul>
+            <p><strong>Report 範例:</strong></p>
+            <img src="report.png" alt="報告範例">
+
+            <h3>疑難排解</h3>
+            <ul>
+                <li><strong>按鈕被停用：</strong> 請確保在 OP 欄位中輸入了 OP ID。</li>
+                <li><strong>權限錯誤：</strong> 應用程式會在複製前自動修改唯讀檔案的權限。</li>
+                <li><strong>差異中的 Unicode：</strong> 包含中文字元或特殊符號的檔案在 PDF 報告中會顯示「Diff omitted」。</li>
+            </ul>
+
+            <h3>已完成功能</h3>
+            <ul>
+                <li>✅ 部分更新功能（僅新增行）</li>
+                <li>✅ 包含更新詳情的 PDF 報告產生</li>
+                <li>✅ 基於差異的預設檔案選擇</li>
+                <li>✅ 基於設定的檔案選擇</li>
+                <li>✅ 自動備份系統</li>
+                <li>✅ 操作者 ID 追蹤</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
